@@ -1,0 +1,31 @@
+  function(user,
+  context,
+  callback){
+    if(context.clientID==="jKyyAh7me0P2ruQfwl4C5sVRACnBu3rU"){
+      console.log("reach1");varoptions={
+        method: 'POST',
+        url: 'https: //workshop-atlassian.auth0.com/api/v2/users/auth0%7C1/identities', headers: {
+          'content-type': 'application/json',
+          authorization: 'BearereyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJGRUE5YnlZNUlwRk9hUWhPZEQ1ZkZHSVREZUlxMFFIOSIsInNjb3BlcyI6eyJ1c2VycyI6eyJhY3Rpb25zIjpbInVwZGF0ZSJdfX0sImlhdCI6MTQ3OTY5NzMxMSwianRpIjoiOWU1OGE0MTI3ZGJkZTUxNGI1YjY5YzVhZDI2MzZkNDQifQ.uY-V4hU-3RQx9cwq3xXonfxhL3MynQjf6KJUExzFMKY'
+        },
+        json: {
+          "provider": "facebook",
+          "connection_id": "con_2wqxITN19lXaMBAd",
+          "user_id": "10209467683307336"
+        }
+      };request(options,
+      function(error,
+      response,
+      body){
+        if(error){
+          console.log("error");returncallback(error);
+        }console.log("All done");returncallback(null,
+        user,
+        context);
+      });
+    }else{
+      console.log("reach2");callback(null,
+      user,
+      context);
+    }
+  }

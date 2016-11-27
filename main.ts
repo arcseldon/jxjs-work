@@ -1,1 +1,1 @@
-alert("ok then");
+alert("ok ");
