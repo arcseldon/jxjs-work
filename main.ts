@@ -1,5 +1,6 @@
 import { Observable, Observer } from "rxjs";
 
+let circle = document.getElementById('circle');
 let source = Observable.fromEvent(document, "mousemove")
   .map((e : MouseEvent) => {
     return {
@@ -7,12 +8,16 @@ let source = Observable.fromEvent(document, "mousemove")
       y: e.clientY
     };
   })
-  .filter(value => value.x < 500);
-// .map(x => x * 2)
-// .filter(x => x > 5);
+  .filter(value => value.x < 500)
+  .delay(300);
+
+function onNext(value) {
+  circle.style.left = value.x;
+  circle.style.top = value.y;
+}
 
 source.subscribe(
-  value => console.log(value),
+  onNext,
   (err) => console.log(`error : ${err}`),
   () => console.log('complete')
 );
